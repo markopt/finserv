@@ -1,0 +1,26 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.account-header{
+  background-color:#A1A1A2;
+  color: #fff;
+  padding: .5rem .5rem .5rem 2rem;
+  margin: 2em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em; 
+  height: 5em;
+  vertical-align: middle;
+  display: grid;
+}
+.account-type{
+  font-size: 1.75em !important;
+  margin: auto;
+}
+.account-column {
+  font-size: 1.2em !important;
+  margin: auto;
+}
+
+.account-details{
+  margin: 2em;
+}

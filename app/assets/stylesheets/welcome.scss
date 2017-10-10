@@ -1,0 +1,47 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.hero-con {
+  background-image: url('HomepageCarImage.png');
+  height: 33rem;
+  margin: 4rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hero-login-form{
+  background-color: #fff;
+  padding: 2rem;
+  margin: 2rem;
+}
+.middle-con > h3 {
+  text-align: center;
+  width: 100%;
+}
+
+.middle-con {
+  margin: 1rem;
+}
+
+.home-image{
+  width: 100%;
+}
+.hero-cta {
+  color: #fff;
+  padding: 3em;
+}
+
+.bottom-con {
+  background-color: #F8F8F8;
+  padding: 3rem;
+}
+
+.home-lower-cta{
+  width: 100%;
+  margin: auto;
+}
+
+.home-lower-cta > a{
+  display: block;
+  margin:auto;
+  width: 30%;
+}
