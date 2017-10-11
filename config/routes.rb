@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  get '/auto', to: 'auto#index'
+
+  get '/mortgages', to: 'mortgages#index'
+
+  get '/cards', to: 'cards#index'
+  get '/banking', to: 'banking#index'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get 'offers/index'
-
+  post '/optimizely-webhook', to: 'application#update_optimizely'
   get 'welcome/index'
   root 'welcome#index'
   resources :users

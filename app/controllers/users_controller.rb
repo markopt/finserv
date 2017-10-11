@@ -13,8 +13,18 @@ class UsersController < ApplicationController
     if !session[:user_id]
       redirect_to '/login'
     end
+
+    user_id = session[:user_id]
+    p user_id
+    @enabled = optimizely_obj.is_feature_enabled('automatic_payment', user_id)
+    @interest_rate_discount = optimizely_obj.get_feature_variable_double('automatic_payment', 'interest_rate_discount', user_id)
+    @message = optimizely_obj.get_feature_variable_string('automatic_payment', 'message', user_id)
+    @is_enabled = optimizely_obj.get_feature_variable_boolean('automatic_payment', 'is_enabled', user_id)
+    @img_url = optimizely_obj.get_feature_variable_string('automatic_payment', 'img_url', user_id)
+    p @is_enabled
+    p @message
+    p @img_url
     @user = User.find(session[:user_id])
-    p @user
   end
 
   # GET /users/new
@@ -33,6 +43,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

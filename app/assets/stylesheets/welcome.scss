@@ -4,20 +4,26 @@
 .hero-con {
   background-image: url('HomepageCarImage.png');
   height: 33rem;
-  margin: 4rem;
+  margin: 2rem;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .hero-login-form{
   background-color: #fff;
   padding: 2rem;
-  margin: 2rem;
+  border-radius: 5px;
+  color: #000;
+}
+.hero-login-form h3 {
+  color: #000;
 }
 .middle-con > h3 {
   text-align: center;
   width: 100%;
 }
-
+.hero-text-con {
+  margin: auto;
+}
 .middle-con {
   margin: 1rem;
 }

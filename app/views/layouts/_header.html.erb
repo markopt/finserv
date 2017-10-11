@@ -6,12 +6,12 @@
     <div class="cell large-6 align-center">
       <a href="/"><h1 id="logo" class="align-center">Community<span class="bold">Bank</span></h1></a>
     </div>
-    <div class="cell large-2 vertical-align large-offset-1">
+    <div class="cell large-2 vertical-align account-links" style="color: #000; margin: auto;">
       <% if session[:user_id] %>    
-        <%= link_to 'Account', @user %>
+        <%= link_to 'Account', @user %> |
         <a href="/logout">Sign Out</a>
       <% else %>
-        <a href="/login">Log in</a>
+        <a href="/login">Log in</a> |
         <a href="/users/new">Register</a>
       <% end %>
     </div>
@@ -28,16 +28,16 @@
       <div class="container" style="width: 100%">
         <div class="grid-x">
           <div class="cell large-auto">
-            <li><a href="#">Accounts</a></li>  
+            <li><a href="/banking">Banking</a></li>  
           </div>
           <div class="cell large-auto">
-            <li><a href="#">Credit Cards</a></li>  
+            <li><a href="/cards">Credit Cards</a></li>  
           </div>
           <div class="cell large-auto">
-            <li><a href="#">Mortgages</a></li>        
+            <li><a href="/mortgages">Mortgages</a></li>
           </div>
           <div class="cell large-auto">
-            <li><a href="#">Auto Loans</a></li>  
+            <li><a href="/auto">Auto Loans</a></li>
           </div>
         </div>
       </div>
