@@ -13,6 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+ @font-face {
+  font-family: "Gotham Bold";
+  src: url('Gotham-Bold-Regular.ttf') format("truetype");
+}
+ @font-face {
+  font-family: "GothamLight Regular";
+  src: url('GothamLight-Regular.otf') format("truetype");
+}
+@font-face {
+  font-family: "Gotham Book Regular";
+  src: url('Gotham-Book-Regular.otf') format("truetype");
+}
+
+h1 {
+  font-family: Gotham Bold;
+}
+
+.gotham-light {
+  font-family: GothamLight Regular !important;
+}
+
+body {
+  font-family: GothamLight Regular;
+}
+
 a.button:visited{
   color: #fff;
 }
@@ -20,6 +46,7 @@ a.button:visited{
   border-radius: 4px;
   background-color: #1356D1;
   text-transform: uppercase;
+  font-family: Gotham Book Regular;
 }
 a:hover{
   background-color: transparent;
