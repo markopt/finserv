@@ -16,7 +16,7 @@
 
  @font-face {
   font-family: "Gotham Bold";
-  src: url('Gotham-Bold-Regular.ttf') format("truetype");
+  src: url("Gotham-Bold-Regular.ttf") format("truetype")
 }
  @font-face {
   font-family: "GothamLight Regular";
