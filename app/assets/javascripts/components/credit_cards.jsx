@@ -22,9 +22,9 @@ class CreditCard extends React.Component {
                 <p>{ this.props.fee }</p>
               </div>
               <div className="cell medium-2 vertical-align">
-                <ReactRouter.Link href={`/apply?card=${ this.props.name }`}>
+                <a href={`/apply?card=${ this.props.name }`}>
                   <button type="button submit" className="button">Learn more</button><br />
-                </ReactRouter.Link>
+                </a>
               </div>
           </div>
         </div>
