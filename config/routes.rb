@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
+  get '/apply', to: 'cards#apply'
   get 'offers/index'
   post '/optimizely-webhook', to: 'application#update_optimizely'
   get 'welcome/index'
