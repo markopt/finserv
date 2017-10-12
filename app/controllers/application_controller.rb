@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  before_action :optimizely_obj
+  before_action :optimizely_obj, :set_user
 
   include SessionsHelper
   include HTTParty
@@ -30,9 +30,15 @@ class ApplicationController < ActionController::Base
   end
   private
 
-def set_admin
-  @administration = Administration.first
-end
+  def set_admin
+    @administration = Administration.first
+  end
+
+  def set_user
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+    end
+  end
 
       
 end

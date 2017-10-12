@@ -8,7 +8,7 @@
     </div>
     <div class="cell large-2 vertical-align account-links" style="color: #000; margin: auto;">
       <% if session[:user_id] %>    
-        <%= link_to 'Account', @user %> |
+        <%= link_to @user.first_name, @user %> |
         <a href="/logout">Sign Out</a>
       <% else %>
         <a href="/login">Log in</a> |
