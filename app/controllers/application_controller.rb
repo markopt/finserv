@@ -9,25 +9,30 @@ class ApplicationController < ActionController::Base
 
   uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
   datafile = HTTParty.get(uri).body
-  @optimizely_client = Optimizely::Project.new(datafile,Optimizely::EventDispatcher.new,
-                                            Optimizely::NoOpLogger.new)
+  @optimizely_client = Optimizely::Project.new(datafile,Optimizely::EventDispatcher.new,Optimizely::NoOpLogger.new)
+
   def optimizely_obj
-    if @optimizely_client
-      return @optimizely_client
-    else
-      p 'DEMO - No Optimizely Object, reinstantiating client'
+    if !@optimizely_client
+      p 'OPTICON DEMO - No Optimizely Object, reinstantiating client'
       uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
       datafile = HTTParty.get(uri).body
       @optimizely_client = Optimizely::Project.new(datafile, Optimizely::EventDispatcher.new, Optimizely::NoOpLogger.new)
-      return @optimizely_client
     end
+    return @optimizely_client
   end
 
   def update_optimizely
-    p 'DEMO - Incoming request from Optimizely webhook'
+    p 'OPTICON DEMO - Incoming request from Optimizely webhook'
     uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
     datafile = HTTParty.get(uri).body
     @optimizely_client = Optimizely::Project.new(datafile, Optimizely::EventDispatcher.new, Optimizely::NoOpLogger.new)
+    return @optimizely_client
   end
+  private
+
+def set_admin
+  @administration = Administration.first
+end
+
       
 end
