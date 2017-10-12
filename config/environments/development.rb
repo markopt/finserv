@@ -8,7 +8,7 @@ Rails.application.configure do
   config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
   config.assets.precompile << /\.(?:svg|eot|woff|ttf|otf)\z/
-
+  config.react.variant = :development
   # Do not eager load code on boot.
   config.eager_load = false
 
