@@ -14,5 +14,7 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//= require components/credit_cards
+//= require components/credit_card_page
 //= require components
 //= require_tree .
