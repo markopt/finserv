@@ -31,6 +31,9 @@ h1 {
   font-family: Gotham Bold;
 }
 
+.gotham-book {
+  font-family: Gotham Book Regular !important;
+}
 .gotham-light {
   font-family: GothamLight Regular !important;
 }
@@ -39,6 +42,12 @@ body {
   font-family: GothamLight Regular;
 }
 
+h4 {
+  font-family: Gotham Book Regular !important;
+}
+p {
+  font-family: GothamLight Regular !important;
+}
 a.button:visited{
   color: #fff;
 }
