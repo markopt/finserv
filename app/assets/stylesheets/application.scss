@@ -14,17 +14,17 @@
  *= require_self
  */
 
- @font-face {
+@font-face {
   font-family: "Gotham Bold";
-  src: url("Gotham-Bold-Regular.ttf") format("truetype")
+  src: font-url('Gotham-Bold-Regular.ttf') format("truetype");
 }
  @font-face {
   font-family: "GothamLight Regular";
-  src: url('GothamLight-Regular.otf') format("truetype");
+  src: font-url('GothamLight-Regular.otf');
 }
 @font-face {
   font-family: "Gotham Book Regular";
-  src: url('Gotham-Book-Regular.otf') format("truetype");
+  src: font-url('Gotham-Book-Regular.otf');
 }
 
 h1 {
