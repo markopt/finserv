@@ -46,9 +46,10 @@
 }
 
 .offer-test {
-  background-color: #1C8745;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
   color: #fff;
   border-radius: 5px;
+  margin-top: 3em;
 }
 .offer-text{
   text-align: center;
@@ -57,6 +58,8 @@
 .offer-img-con > img {
   margin: auto;
   padding: 2em;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 .offer-btn {
   margin: auto;

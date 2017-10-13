@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:show, :index, :edit, :update]
+  
   # GET /users
   # GET /users.json
   def index
@@ -13,17 +14,19 @@ class UsersController < ApplicationController
     if !session[:user_id]
       redirect_to '/login'
     end
+    # Logged in user id
+    user_id = session[:user_id].to_s
 
-    user_id = session[:user_id]
-    p user_id
+    # Enables feature flag and gets live variable values
     @enabled = optimizely_obj.is_feature_enabled('automatic_payment', user_id)
     @interest_rate_discount = optimizely_obj.get_feature_variable_double('automatic_payment', 'interest_rate_discount', user_id)
-    @message = optimizely_obj.get_feature_variable_string('automatic_payment', 'message', user_id)
+    @message = optimizely_obj.get_feature_variable_string('automatic_payment', 'message', user_id)  
+
+    # is_enabled variable requied for the experiment
     @is_enabled = optimizely_obj.get_feature_variable_boolean('automatic_payment', 'is_enabled', user_id)
     @img_url = optimizely_obj.get_feature_variable_string('automatic_payment', 'img_url', user_id)
-    p @is_enabled
-    p @message
-    p @img_url
+    @call_to_action = optimizely_obj.get_feature_variable_string('automatic_payment', 'call_to_action', user_id)
+
     @user = User.find(session[:user_id])
   end
 
