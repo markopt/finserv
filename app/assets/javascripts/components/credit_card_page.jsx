@@ -30,11 +30,13 @@ class CreditCardPage extends React.Component {
     const additionalCards = [ <CreditCard 
             name={"Super Basic credit card"}
             rewards={"There are absolutely no rewards for this card"}
+            img={"https://s3-us-west-1.amazonaws.com/finserv-images/SilverCardImage%402x.png"} 
             apr={"0%"}
             fee={"0%"} />,
         <CreditCard 
             name={"Secure credit card"}
             rewards={"Your reward is peace at mind."}
+            img={"https://s3-us-west-1.amazonaws.com/finserv-images/BlackCardImage%402x.png"}
             apr={"0%"}
             fee={"0%"} />
     ]
