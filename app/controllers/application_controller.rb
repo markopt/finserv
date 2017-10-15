@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
   include HTTParty
   require "optimizely"
   require 'uri'
-
+  
   uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
   datafile = HTTParty.get(uri).body
   @optimizely_client = Optimizely::Project.new(datafile,Optimizely::EventDispatcher.new,Optimizely::NoOpLogger.new)
 
   def optimizely_obj
-    if !@optimizely_client
+    unless @optimizely_client
       p 'OPTICON DEMO - No Optimizely Object, reinstantiating client'
       uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
       datafile = HTTParty.get(uri).body
