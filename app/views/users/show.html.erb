@@ -1,7 +1,7 @@
 <div class="promo-banner"></div>
 <div class="account-summary">
   
-  <% if @enabled %>
+  <% if @enabled && @interest_rate_discount > 0 %>
     <%= render 'automatic_payments_offer'%>
   <% end %>
 
