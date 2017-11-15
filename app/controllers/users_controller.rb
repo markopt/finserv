@@ -18,11 +18,11 @@ class UsersController < ApplicationController
     user_id = session[:user_id].to_s
 
     # Enables feature flag and gets live variable values
-    @enabled = optimizely_obj.is_feature_enabled('automatic_payment', user_id)
-    @interest_rate_discount = optimizely_obj.get_feature_variable_double('automatic_payment', 'interest_rate_discount', user_id)
-    @message = optimizely_obj.get_feature_variable_string('automatic_payment', 'message', user_id)  
-    @img_url = optimizely_obj.get_feature_variable_string('automatic_payment', 'img_url', user_id)
-    @call_to_action = optimizely_obj.get_feature_variable_string('automatic_payment', 'call_to_action', user_id)
+    @enabled = @@optimizely_client.is_feature_enabled('automatic_payment', user_id)
+    @interest_rate_discount = @@optimizely_client.get_feature_variable_double('automatic_payment', 'interest_rate_discount', user_id)
+    @message = @@optimizely_client.get_feature_variable_string('automatic_payment', 'message', user_id)  
+    @img_url = @@optimizely_client.get_feature_variable_string('automatic_payment', 'img_url', user_id)
+    @call_to_action = @@optimizely_client.get_feature_variable_string('automatic_payment', 'call_to_action', user_id)
 
     @user = User.find(session[:user_id])
   end

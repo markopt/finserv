@@ -1,12 +1,11 @@
-# README
+# Overview
+---
+This is the code for a demo Rails + React App to showcase Optimizely Feature Management using Full Stack on the server, as well as Support for Dynamic Apps using Optimizely Web with React components.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+## Technologies
 
 * Ruby version
-
+2.4.0
 * System dependencies
 
 * Configuration
