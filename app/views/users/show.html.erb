@@ -1,8 +1,10 @@
 <div class="promo-banner"></div>
 <div class="account-summary">
-  <% if @interest_rate_discount > 0 %>
-      <%= render 'automatic_payments_offer'%>
+  
+  <% if @enabled && @interest_rate_discount > 0 %>
+    <%= render 'automatic_payments_offer'%>
   <% end %>
+
   <h1>Account Summary</h1>
   <div class="grid-x grid-margin-x">
     <div class="cell large-12 banking">
