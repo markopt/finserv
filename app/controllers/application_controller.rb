@@ -7,14 +7,14 @@ class ApplicationController < ActionController::Base
   require "optimizely"
   require 'uri'
   
-  uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
+  uri = URI('https://optimizely.s3.amazonaws.com/json/9486500546.json')
   datafile = HTTParty.get(uri).body
   @optimizely_client = Optimizely::Project.new(datafile,Optimizely::EventDispatcher.new,Optimizely::NoOpLogger.new)
 
   def optimizely_obj
     unless @optimizely_client
       p 'OPTICON DEMO - No Optimizely Object, reinstantiating client'
-      uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
+      uri = URI('https://optimizely.s3.amazonaws.com/json/9486500546.json')
       datafile = HTTParty.get(uri).body
       @optimizely_client = Optimizely::Project.new(datafile, Optimizely::EventDispatcher.new, Optimizely::NoOpLogger.new)
     end
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   def update_optimizely
     p 'OPTICON DEMO - Incoming request from Optimizely webhook'
-    uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
+    uri = URI('https://optimizely.s3.amazonaws.com/json/9486500546.json')
     datafile = HTTParty.get(uri).body
     @optimizely_client = Optimizely::Project.new(datafile, Optimizely::EventDispatcher.new, Optimizely::NoOpLogger.new)
     return @optimizely_client
