@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  before_action :optimizely_obj, :set_user
+  before_action :optimizely_obj, :set_user, :set_pid
 
   include SessionsHelper
   include HTTParty
@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
 
   # Optimizely Project ID
   # Replace this with your own Optimizely Full Stack Project ID
-  PROJECT_ID = '9010861088'
+  FULLSTACK_PROJECT_ID = '9010861088'
+  WEB_PROJECT_ID = '9015821052'
 
   # Method to handle incoming POST requests from Optimizelys webhook service
   # When a request is made indicating a change to the datafil we will re-instantiate the Optimizely client
@@ -37,7 +38,7 @@ class ApplicationController < ActionController::Base
     p 'Instantiating Client!'
     # Here we are accessing the datafile directly in S3 to ensure the most up to date datafile
     # Once the REST API is updated to use the latest (v4) version of the datafile, this will be updated to get the datafile via the API
-    uri = URI("https://optimizely.s3.amazonaws.com/json/#{PROJECT_ID}.json")
+    uri = URI("https://optimizely.s3.amazonaws.com/json/#{FULLSTACK_PROJECT_ID}.json")
     datafile = HTTParty.get(uri).body
     # Instantiates Class object that is shared across all controllers
     @@optimizely_client = Optimizely::Project.new(datafile, Optimizely::EventDispatcher.new, Optimizely::NoOpLogger.new)
@@ -48,5 +49,18 @@ class ApplicationController < ActionController::Base
       @user = User.find(session[:user_id])
     end
   end
-  
+
+  def set_pid
+    if params[:pid]
+      p 'Setting project ID ' + params[:pid] + ' to cookie'
+      cookies[:pid] = params[:pid]
+      @project_id = params[:pid]
+    elsif cookies[:pid]
+      p 'Project ID stored in Cookie, using that!'
+      @project_id = cookies[:pid]
+    else
+      p 'Using default snippet'
+      @project_id = WEB_PROJECT_ID
+    end
+  end
 end

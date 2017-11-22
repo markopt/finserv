@@ -31,7 +31,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'optimizely-sdk', '~> 2.0.0.beta'
 gem 'httparty'
 gem "react-rails"
-gem 'dotenv-rails', groups: [:development, :test]
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
