@@ -4,26 +4,29 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
   include HTTParty
-  # Optimizely SDK
   require "optimizely"
   require 'uri'
+  
+  uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
+  datafile = HTTParty.get(uri).body
+  @optimizely_client = Optimizely::Project.new(datafile,Optimizely::EventDispatcher.new,Optimizely::NoOpLogger.new)
+
 
   # Optimizely Project ID
   # Replace this with your own Optimizely Full Stack Project ID
   FULLSTACK_PROJECT_ID = '9010861088'
   WEB_PROJECT_ID = '9015821052'
 
-  # Method to handle incoming POST requests from Optimizelys webhook service
-  # When a request is made indicating a change to the datafil we will re-instantiate the Optimizely client
-  # This ensure that the Optimizely client will always be up to sync with changes made in the Optimizely interface
+
   def update_optimizely
-    p 'Incoming webhook from Optimizely, instantiating client'
-    instantiate_optimizely
-    head :no_content
+    p 'OPTICON DEMO - Incoming request from Optimizely webhook'
+    uri = URI('https://optimizely.s3.amazonaws.com/json/9010861088.json')
+    datafile = HTTParty.get(uri).body
+    @optimizely_client = Optimizely::Project.new(datafile, Optimizely::EventDispatcher.new, Optimizely::NoOpLogger.new)
+    return @optimizely_client
   end
-
   private
-
+  
   # Method used to determine if Optimizely has been defined yet
   def optimizely_obj
     p 'Checking to see if Optimizely object exists - A16z Event'
@@ -42,6 +45,9 @@ class ApplicationController < ActionController::Base
     datafile = HTTParty.get(uri).body
     # Instantiates Class object that is shared across all controllers
     @@optimizely_client = Optimizely::Project.new(datafile, Optimizely::EventDispatcher.new, Optimizely::NoOpLogger.new)
+
+  def set_admin
+    @administration = Administration.first
   end
 
   def set_user
