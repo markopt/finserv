@@ -86,4 +86,4 @@ production:
   <<: *default
   database: finserve_production
   username: postgres
-  password: 
+  password: happycustomers

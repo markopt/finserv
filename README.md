@@ -1,5 +1,6 @@
 # Rails Optimizely Full Stack Demo Site
 ---
+![Community Bank Demo Screenshot](https://s3.ap-southeast-2.amazonaws.com/optly-images/community_bank_screenshot.png)
 
 This app was developed to help showcase how [Optimizely Full Stack](https://developers.optimizely.com/x/solutions/sdks/introduction/index.html?language=ruby) could be integrated into a Ruby on Rails application to perform server side experiments and feature management using the [Optimizely Ruby SDK](https://github.com/optimizely/ruby-sdk).
 
@@ -72,3 +73,4 @@ This application requires the following:
 
 ### Starting the app locally
 Note: Once the above has been completed, anytime you wish to run the application locally, simply navigate to main directory for the application and run ```rails server``` or ```rails s``` and go to ```localhost:3000``` in your browser
+
