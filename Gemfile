@@ -33,7 +33,6 @@ gem 'optimizely-sdk', '~> 2.0.0.beta'
 gem 'httparty'
 gem "react-rails"
 
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
