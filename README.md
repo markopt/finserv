@@ -68,8 +68,8 @@ This application requires the following:
 4. Navigate to the cloned app directory
 5. Change the username in ```/config/database.yml``` to your computers username for the development and test environment
 6. Run ```bundle install```
-7. Run ```db:create```
-8. Run ```db:migrate```
+7. Run ```rails db:create```
+8. Run ```rails db:migrate```
 
 ### Starting the app locally
 Note: Once the above has been completed, anytime you wish to run the application locally, simply navigate to main directory for the application and run ```rails server``` or ```rails s``` and go to ```localhost:3000``` in your browser
