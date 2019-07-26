@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 
   # Optimizely Project ID
   # Replace this with your own Optimizely Full Stack Project ID
-  FULLSTACK_PROJECT_ID = '9010861088'
-  WEB_PROJECT_ID = '9015821052'
+  FULLSTACK_PROJECT_ID = 'V3BASJ99i7G3cUY7Qyxk1E'
+  # WEB_PROJECT_ID = '9015821052'
 
   def update_optimizely
     instantiate_optimizely
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     # Here we are accessing the datafile directly in S3 to ensure the most up to date datafile
     # Once the REST API is updated to use the latest (v4) version of the datafile, this will be updated to get the datafile via the API
     # Here we're grabbing the datafile direct from S3 vs the Optimizely CDN, this is to ensure the most up to date version of the datafile at all times 
-    uri = URI("https://optimizely.s3.amazonaws.com/json/#{FULLSTACK_PROJECT_ID}.json")
+    uri = URI("https://cdn.optimizely.com/datafiles/#{FULLSTACK_PROJECT_ID}.json")
     datafile = HTTParty.get(uri).body
     # Instantiates Class object that is shared across all controllers
     @@optimizely_client = Optimizely::Project.new(datafile, Optimizely::EventDispatcher.new, Optimizely::NoOpLogger.new)
