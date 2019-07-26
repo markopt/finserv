@@ -22,8 +22,10 @@ class UsersController < ApplicationController
     p @enabled
     @interest_rate_discount = optimizely_obj.get_feature_variable_double('automatic_payment', 'interest_rate_discount', user_id)
     p @interest_rate_discount
-    @message = optimizely_obj.get_feature_variable_string('automatic_payment', 'message', user_id)  
+    @message = optimizely_obj.get_feature_variable_string('automatic_payment', 'message', user_id)
+    p @message 
     @img_url = optimizely_obj.get_feature_variable_string('automatic_payment', 'img_url', user_id)
+    p @img_url
     @call_to_action = optimizely_obj.get_feature_variable_string('automatic_payment', 'call_to_action', user_id)
     p @call_to_action
     @user = User.find(session[:user_id])

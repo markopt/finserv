@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  before_action :optimizely_obj, :set_user, :set_pid
+  before_action :optimizely_obj, :set_user
 
   include SessionsHelper
   include HTTParty
@@ -50,18 +50,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Used to dynamically load an Optimizely Web project, this is not required for usage with Full Stack
-  def set_pid
-    if params[:pid]
-      p 'Setting project ID ' + params[:pid] + ' to cookie'
-      cookies[:pid] = params[:pid]
-      @project_id = params[:pid]
-    elsif cookies[:pid]
-      p 'Project ID stored in Cookie, using that!'
-      @project_id = cookies[:pid]
-    else
-      p 'Using default snippet'
-      @project_id = WEB_PROJECT_ID
-    end
-  end
+  # Used to dynamically load an Optimizely Web project, this is not required for usage with Full Stack -- removing this for now because we don't need to include Web
+  # def set_pid
+  #   if params[:pid]
+  #     p 'Setting project ID ' + params[:pid] + ' to cookie'
+  #     cookies[:pid] = params[:pid]
+  #     @project_id = params[:pid]
+  #   elsif cookies[:pid]
+  #     p 'Project ID stored in Cookie, using that!'
+  #     @project_id = cookies[:pid]
+  #   else
+  #     p 'Using default snippet'
+  #     @project_id = WEB_PROJECT_ID
+  #   end
+  # end
 end
