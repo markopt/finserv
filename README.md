@@ -74,3 +74,4 @@ This application requires the following:
 ### Starting the app locally
 Note: Once the above has been completed, anytime you wish to run the application locally, simply navigate to main directory for the application and run ```rails server``` or ```rails s``` and go to ```localhost:3000``` in your browser
 
+## Initial commit
