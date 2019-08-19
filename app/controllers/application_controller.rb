@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   # Optimizely Project ID
   # Replace this with your own Optimizely Full Stack Project ID
-  FULLSTACK_PROJECT_ID = 'V3BASJ99i7G3cUY7Qyxk1E'
+  FULLSTACK_PROJECT_ID = 'EGLGbd3P1Y1fS6Q83Z5mdU'
   # WEB_PROJECT_ID = '9015821052'
 
   def update_optimizely
